@@ -70,6 +70,6 @@ spec:
       - name: mysql-persistent-storage
         hostPath:
           # directory location on host
-          path: /data
+          path: /var/local/mysql
           # this field is optional
           type: Directory
