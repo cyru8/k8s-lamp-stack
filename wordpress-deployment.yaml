@@ -99,6 +99,6 @@ spec:
       #   persistentVolumeClaim:
       #     claimName: wp-pv-claim
       volumes:
-      - name: mwordpress-persistent-storage
+      - name: wordpress-persistent-storage
         persistentVolumeClaim:
           claimName: wp-pv-claim
