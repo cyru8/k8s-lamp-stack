@@ -13,6 +13,38 @@ spec:
     tier: frontend
   type: LoadBalancer
 ---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: wp-pv-volume
+  namespace: dev
+  labels:
+    type: local
+    app: wordpress
+ spec:
+  storageClassName: manual
+  capacity:
+    storage: 10Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/mnt/data/html"
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: wp-pv-claim
+  namespace: dev
+  labels:
+    app: wordpress
+spec:
+  storageClassName: manual
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 4Gi
+---
 # apiVersion: v1
 # kind: PersistentVolumeClaim
 # metadata:
@@ -61,17 +93,18 @@ spec:
         ports:
         - containerPort: 80
           name: wordpress
+        # volumeMounts:
+        # - name: wordpress-persistent-storage
+        #   mountPath: /var/www/html
         volumeMounts:
-        - name: wordpress-persistent-storage
-          mountPath: /var/www/html
+        - mountPath: "/var/www/html"
+          name: wordpress-persistent-storage
       # volumes:
       # - name: wordpress-persistent-storage
       #   persistentVolumeClaim:
       #     claimName: wp-pv-claim
       volumes:
-      - name: wordpress-persistent-storage
-        hostPath:
-        # directory location on host
-        path: /var/local/html
-        # this field is optional
-        type: Directory
+      - name: mwordpress-persistent-storage
+        persistentVolumeClaim:
+          claimName: wp-pv-claim
+
