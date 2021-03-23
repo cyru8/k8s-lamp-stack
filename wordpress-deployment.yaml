@@ -2,7 +2,6 @@ apiVersion: v1
 kind: Service
 metadata:
   name: wordpress
-  namespace: dev
   labels:
     app: wordpress
 spec:
@@ -12,7 +11,6 @@ spec:
     app: wordpress
     tier: frontend
   type: LoadBalancer
----
 apiVersion: v1
 kind: PersistentVolume
 metadata:
@@ -21,7 +19,7 @@ metadata:
   labels:
     type: local
     app: wordpress
- spec:
+spec:
   storageClassName: manual
   capacity:
     storage: 10Gi
@@ -29,7 +27,6 @@ metadata:
     - ReadWriteOnce
   hostPath:
     path: "/mnt/data/html"
----
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
@@ -44,12 +41,10 @@ spec:
   resources:
     requests:
       storage: 4Gi
----
 # apiVersion: v1
 # kind: PersistentVolumeClaim
 # metadata:
 #   name: wp-pv-claim
-#   namespace: dev
 #   labels:
 #     app: wordpress
 # spec:
@@ -57,13 +52,11 @@ spec:
 #     - ReadWriteOnce
 #   resources:
 #     requests:
-#       storage: 10Gi
----
+#       storage: 20Gi
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: wordpress
-  namespace: dev
   labels:
     app: wordpress
 spec:
@@ -107,4 +100,3 @@ spec:
       - name: mwordpress-persistent-storage
         persistentVolumeClaim:
           claimName: wp-pv-claim
-
