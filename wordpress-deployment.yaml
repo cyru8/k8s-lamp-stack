@@ -12,21 +12,21 @@ spec:
     app: wordpress
     tier: frontend
   type: LoadBalancer
-apiVersion: v1
-kind: PersistentVolume
-metadata:
-  name: wp-pv-volume
-  labels:
-    type: local
-    app: wordpress
-spec:
-  storageClassName: manual
-  capacity:
-    storage: 1Gi
-  accessModes:
-    - ReadWriteOnce
-  hostPath:
-    path: "/mnt/data/html"
+# apiVersion: v1
+# kind: PersistentVolume
+# metadata:
+#   name: wp-pv-volume
+#   labels:
+#     type: local
+#     app: wordpress
+# spec:
+#   storageClassName: manual
+#   capacity:
+#     storage: 1Gi
+#   accessModes:
+#     - ReadWriteOnce
+#   hostPath:
+#     path: "/mnt/data/html"
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
