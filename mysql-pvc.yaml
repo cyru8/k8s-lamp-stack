@@ -3,8 +3,8 @@ kind: PersistentVolumeClaim
 metadata:
   name: mysql-pv-claim
   namespace: dev
-  annotations:
-    volume.beta.kubernetes.io/storage-class: ""
+  # annotations:
+  #   volume.beta.kubernetes.io/storage-class: ""
   labels:
     app: wordpress
 spec:
