@@ -3,8 +3,8 @@ kind: PersistentVolumeClaim
 metadata:
   name: task01-pv-claim
   namespace: dev
-  annotations:
-    volume.beta.kubernetes.io/storage-class: ""
+  # annotations:
+  #   volume.beta.kubernetes.io/storage-class: ""
 spec:
   storageClassName: manual
   accessModes:
