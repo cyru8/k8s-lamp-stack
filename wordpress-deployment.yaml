@@ -32,6 +32,8 @@ kind: PersistentVolumeClaim
 metadata:
   name: wp-pv-claim
   namespace: dev
+  annotations:
+    volume.beta.kubernetes.io/storage-class: ""
   labels:
     app: wordpress
 spec:
