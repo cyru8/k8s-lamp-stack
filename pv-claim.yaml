@@ -1,8 +1,8 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: task-pv-claim
-  # namespace: dev
+  name: task01-pv-claim
+  namespace: dev
   annotations:
     volume.beta.kubernetes.io/storage-class: ""
 spec:
