@@ -11,5 +11,6 @@ resources:
   - wordpress-pvc.yaml
   - mysql-pv-volume.yaml
   - mysql-pvc.yaml
+  - wordpress-service.yaml
   - mysql-deployment.yaml
   - wordpress-deployment.yaml
