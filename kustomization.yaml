@@ -6,9 +6,10 @@ secretGenerator:
   literals:
   - password=PASSWORD
 resources:
+  - mysql-secret.yaml
   - wordpress-pv-volume.yaml
   - wordpress-pvc.yaml
   - mysql-pv-volume.yaml
-  - mysql-pvc.yaml    
+  - mysql-pvc.yaml
   - mysql-deployment.yaml
   - wordpress-deployment.yaml
