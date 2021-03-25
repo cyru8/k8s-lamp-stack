@@ -12,7 +12,8 @@ spec:
   selector:
     app: wordpress
     tier: frontend
-  type: LoadBalancer
+  # type: LoadBalancer
+  type: NodePort
 # apiVersion: v1
 # kind: PersistentVolume
 # metadata:
